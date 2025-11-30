@@ -1,0 +1,51 @@
+{
+    "name": "markdown-dark-preview",
+    "displayName": "Markdown Dark Preview",
+    "description": "Visualizador de Markdown con tema oscuro al estilo GitHub",
+    "version": "1.0.0",
+    "publisher": "tu-nombre",
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:markdown"
+    ],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "markdown-dark-previewer.preview",
+                "title": "Abrir Preview de Markdown (Tema Oscuro)",
+                "category": "Markdown"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "markdown-dark-previewer.preview",
+                "key": "ctrl+shift+v",
+                "mac": "cmd+shift+v",
+                "when": "editorLangId == markdown"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "pretest": "npm run compile"
+    },
+    "devDependencies": {
+        "@types/node": "^18.0.0",
+        "@types/vscode": "^1.80.0",
+        "@types/markdown-it": "^13.0.0",
+        "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "markdown-it": "^13.0.1",
+        "markdown-it-task-lists": "^2.1.1",
+        "highlight.js": "^11.9.0"
+    }
+}
