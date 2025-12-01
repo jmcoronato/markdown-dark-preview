@@ -8,4 +8,6 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 node_modules/**
+webpack.config.js
+# Dependencies are bundled by webpack, so node_modules is not needed
 

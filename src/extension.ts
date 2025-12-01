@@ -3,7 +3,7 @@ import { MarkdownPreviewProvider } from './previewProvider';
 
 let previewProvider: MarkdownPreviewProvider | undefined;
 
-export function activate(context: vscode.ExtensionContext) {
+export function activate(context: vscode.ExtensionContext): void {
     console.log('Markdown Dark Previewer está activo');
 
     previewProvider = new MarkdownPreviewProvider(context);
@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(disposable);
 
-    // Observar cambios en los archivos al guardar (backup)
+    // Observar cambios en los archivos al guardar
     const fileWatcher = vscode.workspace.onDidSaveTextDocument((document) => {
         if (document.languageId === 'markdown') {
             previewProvider?.updatePreview(document);
@@ -39,7 +39,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(fileWatcher);
 
-    // Observar cambios en tiempo real (sin guardar)
+    // Observar cambios en tiempo real (con debouncing automático en updatePreview)
     const liveWatcher = vscode.workspace.onDidChangeTextDocument((event) => {
         if (event.document.languageId === 'markdown') {
             previewProvider?.updatePreview(event.document);
@@ -49,7 +49,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(liveWatcher);
 }
 
-export function deactivate() {
+export function deactivate(): void {
     previewProvider?.dispose();
+    previewProvider = undefined;
 }
-

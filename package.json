@@ -1,15 +1,37 @@
 {
     "name": "markdown-dark-preview",
     "displayName": "Markdown Dark Preview",
-    "description": "Visualizador de Markdown con tema oscuro al estilo GitHub",
+    "description": "A beautiful Markdown previewer with GitHub Dark theme, live updates, syntax highlighting, and bidirectional sync",
     "version": "1.0.0",
-    "publisher": "tu-nombre",
+    "publisher": "jmcoronato",
+    "icon": "icon.png",
     "engines": {
         "vscode": "^1.80.0"
     },
     "categories": [
-        "Other"
+        "Other",
+        "Formatters"
     ],
+    "keywords": [
+        "markdown",
+        "preview",
+        "dark",
+        "theme",
+        "github",
+        "syntax",
+        "highlighting",
+        "live",
+        "sync"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jmcoronato/markdown-preview.git"
+    },
+    "bugs": {
+        "url": "https://github.com/jmcoronato/markdown-preview/issues"
+    },
+    "homepage": "https://github.com/jmcoronato/markdown-preview#readme",
+    "license": "MIT",
     "activationEvents": [
         "onLanguage:markdown"
     ],
@@ -18,7 +40,7 @@
         "commands": [
             {
                 "command": "markdown-dark-previewer.preview",
-                "title": "Abrir Preview de Markdown (Tema Oscuro)",
+                "title": "Open Markdown Preview (Dark Theme)",
                 "category": "Markdown"
             }
         ],
@@ -32,20 +54,26 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "npm run compile",
+        "vscode:prepublish": "npm run package",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
+        "package": "webpack --mode production",
+        "package-dev": "webpack --mode development",
         "pretest": "npm run compile"
     },
     "devDependencies": {
+        "@types/markdown-it": "^13.0.0",
         "@types/node": "^18.0.0",
         "@types/vscode": "^1.80.0",
-        "@types/markdown-it": "^13.0.0",
-        "typescript": "^5.0.0"
+        "@types/webpack-env": "^1.18.8",
+        "ts-loader": "^9.5.4",
+        "typescript": "^5.0.0",
+        "webpack": "^5.103.0",
+        "webpack-cli": "^6.0.1"
     },
     "dependencies": {
+        "highlight.js": "^11.9.0",
         "markdown-it": "^13.0.1",
-        "markdown-it-task-lists": "^2.1.1",
-        "highlight.js": "^11.9.0"
+        "markdown-it-task-lists": "^2.1.1"
     }
 }
