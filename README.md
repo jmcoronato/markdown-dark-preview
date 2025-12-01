@@ -175,9 +175,9 @@ MIT License - feel free to use this extension in your projects.
 
 If you find this extension useful, please consider giving it a star on GitHub! It helps others discover the project and motivates continued development.
 
-[![GitHub stars](https://img.shields.io/github/stars/jmcoronato/markdown-preview.svg?style=social&label=Star)](https://github.com/jmcoronato/markdown-preview)
+[![GitHub stars](https://img.shields.io/github/stars/jmcoronato/markdown-dark-preview.svg?style=social&label=Star)](https://github.com/jmcoronato/markdown-dark-preview)
 
-**[⭐ Star this repository on GitHub](https://github.com/jmcoronato/markdown-preview)**
+**[⭐ Star this repository on GitHub](https://github.com/jmcoronato/markdown-dark-preview)**
 
 ---
 
